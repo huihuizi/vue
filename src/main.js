@@ -14,7 +14,7 @@ Vue.component(Header.name,Header)
 import '@/assets/mui/css/mui.min.css'
 
 /* eslint-disable no-new */
-new Vue({
+new Vue({       
   el: '#app',
   router,
   render: h => h(App)
