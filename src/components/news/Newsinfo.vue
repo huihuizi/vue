@@ -7,6 +7,7 @@
             <span>发表时间：{{ newsinfo.add_titme }}</span>
             <span>点击：{{newsinfo.click}} </span>
         </p>
+        <hr>
         <!-- 内容区域 -->
         <div class="content" v-html="newsinfo.content"></div>
         <!-- 评论 -->
@@ -60,7 +61,6 @@ export default {
         color: #226aff;
         display: flex;
         justify-content: space-between;
-        border-bottom: 1px solid #cccccc;
     }
     .content{
         img{

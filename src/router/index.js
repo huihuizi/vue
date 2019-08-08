@@ -8,6 +8,9 @@ import ShopcarContainer from '@/components/tabbar/ShopcarContainer'
 import SearchContainer from '@/components/tabbar/SearchContainer'
 import Newslist from '@/components/news/Newslist'
 import Newsinfo from '@/components/news/Newsinfo'
+import Photolist from '@/components/photos/Photolist'
+import Photoinfo from '@/components/photos/Photoinfo'
+import Goodslist from '@/components/goods/Goodslist'
 
 export default new Router({
   routes: [
@@ -45,6 +48,21 @@ export default new Router({
       path: '/home/newsinfo/:id',
       name: 'Newsinfo',
       component: Newsinfo
+    },
+    {
+      path: '/home/photolist',
+      name: 'Photolist',
+      component:Photolist
+    },
+    {
+      path: '/home/photoinfo/:id',
+      name: 'Photoinfo',
+      component:Photoinfo 
+    },
+    {
+      path: '/home/goodslist',
+      name: 'Goodslist',
+      component:Goodslist
     }
   ],
   linkActiveClass:"mui-active"      // 覆盖默认的路由高亮的类，默认的类叫做 router-link-active

@@ -7,17 +7,23 @@ Vue.config.productionTip = false
 
 //Vue.use(Mint);
 import 'mint-ui/lib/style.min.css'
+
+import '@/assets/lib/mui/css/mui.min.css'
 //引入 min-ui
-import { Header, Swipe, SwipeItem, Button } from 'mint-ui';
-import '@/assets/mui/css/mui.min.css'
+// import { Header, Swipe, SwipeItem, Button, Lazyload } from 'mint-ui';
+// // 按需导入 mint-ui 中的组件
+// Vue.component(Header.name,Header)
+// Vue.component(Swipe.name,Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// Vue.component(Button.name, Button);
+// // 引入懒加载 
+// Vue.use(Lazyload);
+// 如果要懒加载，就不能按需加载，得全部加载
+import MintUI from 'mint-ui'
+Vue.use(MintUI)
+import 'mint-ui/lib/style.css'
 
-// 按需导入 mint-ui 中的组件
-Vue.component(Header.name,Header)
-Vue.component(Swipe.name,Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-Vue.component(Button.name, Button);
-
-import '@/assets/mui/css/icons-extra.css';
+import '@/assets/lib/mui/css/icons-extra.css';
 
 // 导入时间插件
 import moment from 'moment'
@@ -31,8 +37,15 @@ Vue.filter('dateFormat', function (dataStr, pattern = "YYYY-MM-DD HH:mm:ss"){
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
+// 安装图片预览创建
+import VuePreview from 'vue-preview'
+Vue.use(VuePreview)
+
+
 // 设置请求的根路径
 Vue.http.options.root = 'http://www.liulongbin.top:3005/';
+// 全局设置 post 时候表单数据格式组织形式   application/x-www-form-urlencoded
+Vue.http.options.emulateJSON = true;
 
 /* eslint-disable no-new */
 new Vue({       
