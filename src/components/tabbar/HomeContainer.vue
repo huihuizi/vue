@@ -1,12 +1,7 @@
 <template>
     <div>
         <!-- 这是轮播图区域 -->
-        <mt-swipe :auto="4000">
-            <!-- 在组件中，使用v-for 就一定使用 key -->
-            <mt-swipe-item v-for="(item,index) in lunbotuList" :key="index">
-                <img :src="item.img" alt="">
-            </mt-swipe-item>
-        </mt-swipe>
+        <sliper :lunbotuList="lunbotuList" :isfull="true"></sliper>
         <!-- 九宫格 到 六宫格的改造 -->
         <!-- 九宫格 到 六宫格 的改造工程-->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -47,17 +42,19 @@
         </a>
       </li>
     </ul>
-
-        <h3>homecontainer</h3>
     </div>
 </template>
 <script>
+import Sliper from "@/components/subcomponents/Sliper"
 export default {
     name:"homecontainer",
     data(){
         return{
             lunbotuList:[]          //保存轮播图的数组
         }
+    },
+    components:{
+      Sliper
     },
     created(){
         this.getLunbotu()
@@ -73,24 +70,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.mint-swipe{
-    height:200px;
-    .mint-swipe-item{
-        &:nth-child(1){
-            background:skyblue;
-        }
-        &:nth-child(2){
-            background:wheat;
-        }
-        &:nth-child(3){
-            background:lavender;
-        }
-    }
-    img{
-        width:100%;
-        height:100%;
-    }
-}
+
 .mui-grid-view.mui-grid-9{
   background: #ffffff;
   border:none;

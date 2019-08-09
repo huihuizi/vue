@@ -11,6 +11,9 @@ import Newsinfo from '@/components/news/Newsinfo'
 import Photolist from '@/components/photos/Photolist'
 import Photoinfo from '@/components/photos/Photoinfo'
 import Goodslist from '@/components/goods/Goodslist'
+import Goodsinfo from '@/components/goods/Goodsinfo'
+import Goodsdesc from '@/components/goods/Goodsdesc'
+import Goodscomment from '@/components/goods/Goodscomment'
 
 export default new Router({
   routes: [
@@ -63,6 +66,21 @@ export default new Router({
       path: '/home/goodslist',
       name: 'Goodslist',
       component:Goodslist
+    },
+    {
+      path: '/home/goodsinfo/:id',
+      name: 'Goodsinfo',
+      component:Goodsinfo
+    },
+    {
+      path: '/home/goodsdesc/:id',
+      name: 'Goodsdesc',
+      component:Goodsdesc
+    },
+    {
+      path: '/home/goodscomment/:id',
+      name: 'Goodscomment',
+      component:Goodscomment
     }
   ],
   linkActiveClass:"mui-active"      // 覆盖默认的路由高亮的类，默认的类叫做 router-link-active

@@ -40,6 +40,8 @@ Vue.use(VueResource)
 // 安装图片预览创建
 import VuePreview from 'vue-preview'
 Vue.use(VuePreview)
+// 建一个全局的css样式，给缩略图渲染出来的结构设置合适的样式
+import '@/assets/lib/css/golbal.css';
 
 
 // 设置请求的根路径

@@ -11,7 +11,7 @@
         <!-- 缩略图区域 -->
         <!-- <vue-preview :slides="slide1" @close="handleClose"></vue-preview> -->
         <div class="thumbs">
-            <img class="preview-img" v-for="(item, index) in list" :src="item.src" height="100" @click="$preview.open(index, list)" :key="item.src">
+            <vue-preview :slides="list"></vue-preview>
         </div>
         <!-- 图片内容区域 -->
         <div class="content" v-html="photoinfo.content">
@@ -56,6 +56,7 @@ export default {
                     result.body.message.forEach(item => {
                         item.w = 600
                         item.h = 400
+                        item.msrc = item.src
                     });
                     // 把完整的数据保存到list中
                     this.list = result.body.message
@@ -83,12 +84,6 @@ export default {
     .content{
         font-size: 13px;
         line-height: 30px;
-    }
-    .thumbs{
-        img{
-            margin:10px;
-            box-shadow: 0 0 8px #999;
-        }
     }
 }
 </style>
