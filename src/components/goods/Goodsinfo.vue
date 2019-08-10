@@ -114,9 +114,20 @@ export default {
         addToShopCar() {
             // 添加到购物车
             this.ballFlag = !this.ballFlag;
+            // { id:商品的id，count:要购买的数量,price：商品的单价, selected：false}
+            // 拼接出一个，要保存到 store 中 car 数组里的 商品信息对象
+            var goodsinfo = { 
+                id:this.id, 
+                count: this.selectedcount,
+                 price:this.goodsinfo.sell_price, 
+                 selected:true
+            }
+            // 调用 store 中的 mutations 来将商品加入到购物车
+            this.$store.commit('addToCar',goodsinfo)
         },
         beforeEnter(el) {
             el.style.transform = "translate(0, 0)";
+            el.style.opacity=1;
         },
         enter(el, done) {
             el.offsetWidth;
@@ -140,10 +151,10 @@ export default {
 
             el.style.transform = `translate(${xDist}px, ${yDist}px)`;
             el.style.transition = "all 0.5s cubic-bezier(.4,-0.3,1,.68)";
-            // done();
+            el.addEventListener('transitionend',done)
         },
         afterEnter(el) {
-            console.log("ok")
+            // console.log("ok")
             this.ballFlag = !this.ballFlag;
         },
         getSelectedCount(count){
