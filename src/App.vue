@@ -34,7 +34,7 @@
 </template>
 
 <script>
-//import "@/assets/css/mui.min.css";	//引入css
+// import "@/assets/css/mui.min.css";	//引入css
 export default {
   name: 'App',
   data(){
